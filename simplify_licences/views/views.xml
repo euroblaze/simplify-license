@@ -1,0 +1,74 @@
+<odoo>
+  <data>
+       <record model="ir.ui.view" id="simplify_licences.list">
+      <field name="name">simplify_licences list</field>
+      <field name="model">simplify_licences.simplify_licences</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="partner_id"/>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="description"/>
+          <field name="date_start"/>
+          <field name="date_end"/>
+          <field name="number_of_modules"/>
+          <field name="active"/>
+          
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="simplify_licences.form">
+      <field name="name">simplify_licences form</field>
+      <field name="model">simplify_licences.simplify_licences</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+              <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="partner_id"/>
+                      <field name="date_start"/>
+                      <field name="date_end"/>
+                  </group>
+                  <group>
+                      <field name="value"/>
+                      <field name="description"/>
+                      <field name="active"/>
+                      <field name="module_list"/>
+                  </group>
+              </group>
+          </sheet>
+          
+        </form>
+      </field>
+    </record>
+     <record id="action_customer_details_report" model="ir.actions.act_window">
+           <field name="name">Licences</field>
+           <field name="res_model">simplify_licences.simplify_licences</field>
+           <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="simplify_licences.list"/>
+           <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">
+                   Check Customer Licence Details
+               </p>
+           </field>
+        </record>
+    <menuitem id="menu_customer_details"
+            name="Licences Details"
+            action="action_customer_details_report"
+            sequence="2"/>
+
+            <menuitem id="menu_customer_details_main_reports"
+         name="Licences"
+         parent="menu_customer_details"
+         sequence="0"/>
+
+         <menuitem id="menu_customer_details_report"
+         name="Licences"
+         parent="menu_customer_details_main_reports"
+         action="action_customer_details_report"
+         sequence="0"/>
+
+  </data>
+</odoo>
