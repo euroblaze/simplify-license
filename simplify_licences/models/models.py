@@ -16,3 +16,10 @@ class simplify_licences(models.Model):
     active = fields.Boolean(string = 'Active', default = True)
     module_list = fields.Char(string = "Modules Installed")
     number_of_modules = fields.Integer(string = "Number of modules installed")
+
+
+
+    # price of the whole package (as total price)
+    # price per module
+    # accomodate 3rd party modules (take the author + field for number of sold copies -> can be new menu)
+    
